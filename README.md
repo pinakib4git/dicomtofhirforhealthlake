@@ -1,58 +1,60 @@
+# AWS DCM2FHIR Project
 
-# Welcome to your CDK Python project!
+This project contains a CDK application that deploys infrastructure for converting DICOM files to FHIR format using AWS services.
 
-This is a blank project for CDK development with Python.
+## Architecture
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+The solution uses the following AWS services:
+- Amazon S3 for storage
+- AWS Lambda for processing
+- AWS Step Functions for orchestration
+- Amazon EventBridge for event handling
+- AWS KMS for encryption
+- Amazon HealthLake for FHIR data storage
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+## Prerequisites
 
-To manually create a virtualenv on MacOS and Linux:
+- AWS CLI configured with appropriate credentials
+- Node.js 14.x or later
+- Python 3.9 or later
+- AWS CDK Toolkit
 
-```
-$ python -m venv .venv
-```
+## Installation
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+1. Clone the repository
+2. Install dependencies:
 
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
+```bash
+pip install -r requirements.txt
 ```
 
-Once the virtualenv is activated, you can install the required dependencies.
+## Deployment
 
-```
-$ pip install -r requirements.txt
-```
+To deploy the stack:
 
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
+```bash
+cdk deploy DCM2FHIRMasterStack-New
 ```
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
+## Project Structure
 
-## Useful commands
+- `aws_dcm2fhir_project/` - Main project code
+  - `master_stack.py` - Main stack that creates all nested stacks
+  - `aws_lambda_stack.py` - Lambda functions for processing
+  - `aws_s3_stack.py` - S3 buckets for storage
+  - `aws_stepfunction_stack.py` - Step Functions for workflow
+  - `aws_eventbridge_new_stack.py` - EventBridge for event handling
+  - `aws_kmskey_stack.py` - KMS keys for encryption
+  - `aws_healthlake_stack.py` - HealthLake for FHIR data
+  - Lambda function code in respective directories
 
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
+## Contributing
 
-Enjoy!
+Please follow standard Git workflow:
+1. Create a feature branch
+2. Make changes
+3. Submit a pull request
+
+## License
+
+[Specify your license]
