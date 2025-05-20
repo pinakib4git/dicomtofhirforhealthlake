@@ -11,10 +11,9 @@ env = Environment(
 )
 
 # Use a unique environment name to avoid conflicts with the failed stack
-environment_var = "test2"  # Changed from test1 to test2
+environment_var = "uat"  # Changed from test1 to test2
 
 # Create the master stack with the environment and a different stack name
 # to avoid conflict with the failed stack
-master_stack = MasterStack(app, "DCM2FHIRMasterStack-TA", environment=environment_var)
-
+master_stack = MasterStack(app, "DCM2FHIRMasterStack-PRD", environment=environment_var)
 app.synth()
