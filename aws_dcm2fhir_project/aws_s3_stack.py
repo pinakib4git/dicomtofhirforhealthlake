@@ -9,8 +9,7 @@ from aws_cdk import (
     CfnOutput
 )
 from constructs import Construct
-
-#get random number integer
+import os
 from random import randint
 import random
 
@@ -21,7 +20,7 @@ random_number = randint(10, 99)
 class S3BucketStack(NestedStack):
     def __init__(self, scope: Construct, id: str, resource_prefix: str = None, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
-        empty_dir = "C:\\Users\\bpinaki\\Documents\\HCLS\\TFC\\aws-dcm2fhir-project\\aws_dcm2fhir_project\\emptyfolder"
+        empty_dir = os.path.join(os.path.dirname(__file__), "emptyfolder")
         # Create S3 bucket-1 with configuration matching your existing bucket
         bucket1 = s3.Bucket(
             self, "MyConfiguredBucket1",

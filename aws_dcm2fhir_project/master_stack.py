@@ -3,13 +3,13 @@ from aws_cdk import (
     aws_cloudformation as cfn
 )
 from constructs import Construct
-from aws_dcm2fhir_project.aws_s3event_bucket_stack import S3BucketStackEvent
-from aws_dcm2fhir_project.aws_stepfunction_stack import StepFunctionStack
-from aws_dcm2fhir_project.aws_eventbridge_new_stack import EventBridgeStack
-from aws_dcm2fhir_project.aws_lambda_stack import LambdaIAMStack
-from aws_dcm2fhir_project.aws_kmskey_stack import KMSKeyStack
-from aws_dcm2fhir_project.aws_healthlake_stack import HealthLakeStack
-from aws_dcm2fhir_project.aws_s3_stack import S3BucketStack
+from aws_s3event_bucket_stack import S3BucketStackEvent
+from aws_stepfunction_stack import StepFunctionStack
+from aws_eventbridge_new_stack import EventBridgeStack
+from aws_lambda_stack import LambdaIAMStack
+from aws_kmskey_stack import KMSKeyStack
+from aws_healthlake_stack import HealthLakeStack
+from aws_s3_stack import S3BucketStack
 import json
 import os
 import uuid

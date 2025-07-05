@@ -8,10 +8,8 @@ from aws_cdk import (
     CfnOutput
 )
 from constructs import Construct
-#get random number integer
 from random import randint
 import random
-from constructs import Construct
 import json
 import os
 import uuid
@@ -24,7 +22,7 @@ class S3BucketStackEvent(NestedStack):
         super().__init__(scope, id, **kwargs)
                 
         
-        empty_dir = "C:\\Users\\bpinaki\\Documents\\HCLS\\TFC\\aws-dcm2fhir-project\\aws_dcm2fhir_project\\emptyfolder"
+        empty_dir = os.path.join(os.path.dirname(__file__), "emptyfolder")
         # Create S3 bucket-2 with configuration matching your existing bucket
         self.event_bucket = s3.Bucket(
             self, "MyConfiguredevent_bucket",

@@ -14,7 +14,9 @@ import uuid
 
 class StepFunctionStack(NestedStack):
     def __init__(self, scope: Construct, id: str, resource_prefix: str = None, **kwargs) -> None:
-        super().__init__(scope, id, **kwargs)
+        # Remove resource_prefix from kwargs before passing to parent
+        filtered_kwargs = {k: v for k, v in kwargs.items() if k != 'resource_prefix'}
+        super().__init__(scope, id, **filtered_kwargs)
         
         # Create IAM Role with dynamic name for Step Function
         step_function_role = iam.Role(
